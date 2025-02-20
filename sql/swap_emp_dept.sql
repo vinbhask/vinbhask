@@ -35,13 +35,21 @@ Output
 */
 
 with cte as (
-select e.*
-,LEAD(department,1,department) over(order by e.id) as next_row
-,LAG(department,1,department) over(order by e.id) as prev_row
-,CASE WHEN e.id mod 2=0 then 'even' else 'odd' end as row_val
-from employee e)
-select 
-id
-,name
-,case when row_val='odd' then next_row else prev_row end as department
-from cte;
+    select
+        e.*
+        ,LEAD(department, 1, department) over(order by e.id) as next_row
+        ,LAG(department, 1, department) over(order by e.id) as prev_row
+        ,CASE
+            WHEN e.id mod 2 = 0 then 'even' else 'odd'
+        end as row_val
+    from
+        employee e
+)
+select
+    id
+    ,name
+    ,case
+        when row_val = 'odd' then next_row else prev_row
+    end as department
+from
+    cte;
