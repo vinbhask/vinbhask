@@ -1,4 +1,4 @@
-#Write a SQL Query to Swap Employee Departments, question from L&T
+#Write a SQL Query to Swap Employee Departments
 /*
 drop table if EXISTS employee;
 create table employee(id int identity,name varchar(15),department varchar(15));
