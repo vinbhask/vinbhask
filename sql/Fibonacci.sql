@@ -1,5 +1,7 @@
 /*
 Generate Fibonacci sequence upto the given number
+
+Logic: Inside the CTE we have the first select as anchor clause and second select would be the incremental one.
 */
 
 
