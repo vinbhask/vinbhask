@@ -14,7 +14,7 @@ services:
       KAFKA_CFG_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
       KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
       KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://3.110.114.27:9092 # Updated to use only the public IP for Kafka advertised listeners
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://X.xxx.xxx.xx:9092 # Updated to use only the public IP for Kafka advertised listeners
       KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE: "true"
     volumes:
       - ./kafka_data:/bitnami/kafka
@@ -27,7 +27,7 @@ services:
     ports:
       - "8083:8083"
     environment:
-      CONNECT_BOOTSTRAP_SERVERS: 3.110.114.27:9092 # Updated to use localhost for Kafka Connect to connect locally
+      CONNECT_BOOTSTRAP_SERVERS: X.xxx.xxx.xx:9092 # Updated to use localhost for Kafka Connect to connect locally
       CONNECT_GROUP_ID: connect-cluster
       CONNECT_CONFIG_STORAGE_TOPIC: connect-configs
       CONNECT_OFFSET_STORAGE_TOPIC: connect-offsets
@@ -36,7 +36,7 @@ services:
       CONNECT_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
       CONNECT_INTERNAL_KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
       CONNECT_INTERNAL_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
-      CONNECT_REST_ADVERTISED_HOST_NAME: 3.110.114.27 # Updated to use the EC2 public IP for Kafka Connect
+      CONNECT_REST_ADVERTISED_HOST_NAME: X.xxx.xxx.xx # Updated to use the EC2 public IP for Kafka Connect
       CONNECT_PLUGIN_PATH: /usr/share/java,/usr/share/confluent-hub-components
     volumes:
       - ./connect-plugins:/usr/share/confluent-hub-components
