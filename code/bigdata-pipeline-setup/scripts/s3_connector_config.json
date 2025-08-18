@@ -1,0 +1,19 @@
+{
+    "name": "s3-sink-connector",
+    "config": {
+    "connector.class": "io.confluent.connect.s3.S3SinkConnector",
+    "tasks.max": "1",
+    "topics": "iot_json_topic",
+    "s3.bucket.name": "test-bucket-vinbhask1",
+    "s3.region": "ap-south-1",
+    "s3.part.size": 5242880,
+    "flush.size": 3,
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "storage.class": "io.confluent.connect.s3.storage.S3Storage",
+    "format.class": "io.confluent.connect.s3.format.json.JsonFormat",
+    "rotate.interval.ms": "60000",
+    "schema.compatibility": "NONE",
+    "aws.credentials.provider.class": "com.amazonaws.auth.InstanceProfileCredentialsProvider"
+    }
+}
