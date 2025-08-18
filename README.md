@@ -1,5 +1,4 @@
-- 👋 Hi, I’m Vinod
-- 👀 I’m interested in cloud technologies
+- 👋 Hi, 
 
 
 <!---
